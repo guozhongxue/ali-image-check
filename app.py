@@ -19,7 +19,7 @@ def oss():
     if u[0:4] != 'http':
         return suc(None,1,'Error')
     # 请使用您自己的AccessKey信息。
-    clt = client.AcsClient("ijjifZdnzzCi33e1", "flwHR8ms0boN0w4XbLvYhhXj6jRhBE", "cn-beijing")
+    clt = client.AcsClient("accessKeyId", "accessKeyId", "cn-beijing")
     # 每次请求时需要新建request，请勿复用request对象。
     request = ImageSyncScanRequest.ImageSyncScanRequest()
     request.set_accept_format('JSON')
@@ -36,7 +36,7 @@ def oss():
     # 例如：检测2张图片，场景传递porn和terrorism，则计费按照2张图片鉴黄和2张图片暴恐检测计算。
     request.set_content(HttpContentHelper.toValue({"tasks": [task],
                                                    "scenes": ["porn","terrorism","ad","qrcode","live","logo"],
-                                                   "bizType":"examine"
+                                                   "bizType":"examine"#自定义模板
                                                    }))
     response = clt.do_action_with_exception(request)
     # print(response)
